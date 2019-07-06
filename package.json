@@ -2,11 +2,6 @@
   "name": "cashkeeper-frontend",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
-  },
   "scripts": {
     "start": "cra-alias start",
     "build": "cra-alias build",
@@ -14,13 +9,20 @@
     "eject": "react-scripts eject",
     "flow": "flow"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1"
+  },
+  "devDependencies": {
+    "cra-alias": "^4.13.13",
+    "flow-bin": "^0.102.0"
   },
   "browserslist": {
     "production": [
       ">0.2%",
       "not dead",
+      "not ie <= 11",
       "not op_mini all"
     ],
     "development": [
@@ -28,9 +30,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "cra-alias": "^4.13.13",
-    "flow-bin": "^0.102.0"
   }
 }
