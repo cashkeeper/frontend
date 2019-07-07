@@ -4,7 +4,6 @@
   "rules": {
     "indent": ["warn", 2],
     "semi": ["warn", "never"],
-    "quotes": ["warn", "single"],
-    "max-len": ["warn", 120]
+    "quotes": ["warn", "single"]
   }
 }
