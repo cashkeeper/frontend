@@ -78,17 +78,23 @@ export type ButtonColors = {
   text: string
 }
 
-export type ButtonState = 'initial' | 'hover' | 'active' | 'disabled'
-
 export type ButtonStates = {
-  [state: ButtonState]: ButtonColors
+  initial: ButtonColors,
+  hover: ButtonColors,
+  active: ButtonColors,
+  disabled: ButtonColors
 }
 
-export type ButtonColorVariant = 'neutral' | 'success' | 'warning' | 'failure'
+export type ButtonState = $Keys<ButtonStates>
 
 type ButtonColorVariants = {
-  [variant: ButtonColorVariant]: ButtonStates
+  neutral: ButtonStates,
+  success: ButtonStates,
+  warning: ButtonStates,
+  failure: ButtonStates
 }
+
+export type ButtonColorVariant = $Keys<ButtonColorVariants>
 
 /*
  * THEME
