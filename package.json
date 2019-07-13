@@ -12,11 +12,14 @@
   "dependencies": {
     "effector": "^20.0.0",
     "effector-react": "^20.0.0",
+    "just-debounce-it": "^1.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "styled-components": "^4.3.2",
-    "styled-normalize": "^8.0.6"
+    "styled-normalize": "^8.0.6",
+    "throttleit": "^1.0.0"
   },
   "devDependencies": {
     "cra-alias": "^4.13.13",

@@ -4,6 +4,10 @@ import { normalize } from 'styled-normalize'
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
 
+  * {
+    box-sizing: border-box;
+  }
+
   html,
   body {
     height: 100%;
@@ -14,9 +18,11 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    margin: 50px;
-    font-family: "Ubuntu", -apple-system, BlinkMacSystemFont,
-      "Segoe UI", "Roboto", "Oxygen", "Cantarell",
-      "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    margin: 0;
+    font-family: "Fira Sans", sans-serif;
+    color: ${props => props.theme.general.colors.text};
+    background-color: ${props => props.theme.general.colors.background};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 `

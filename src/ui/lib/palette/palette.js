@@ -1,7 +1,4 @@
-// @flow
-import { type Palette } from '../../types'
-
-export const palette: Palette = {
+export const palette = {
   backgrounds: {
     Red: {
       '50': '#FFEBEE',
