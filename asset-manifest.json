@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/cashkeeper/static/js/main.fa2b3b81.chunk.js",
+    "main.js.map": "/cashkeeper/static/js/main.fa2b3b81.chunk.js.map",
+    "runtime~main.js": "/cashkeeper/static/js/runtime~main.05ee521b.js",
+    "runtime~main.js.map": "/cashkeeper/static/js/runtime~main.05ee521b.js.map",
+    "static/js/2.3ad8b3fd.chunk.js": "/cashkeeper/static/js/2.3ad8b3fd.chunk.js",
+    "static/js/2.3ad8b3fd.chunk.js.map": "/cashkeeper/static/js/2.3ad8b3fd.chunk.js.map",
+    "index.html": "/cashkeeper/index.html",
+    "precache-manifest.a9a32a589ae1b4c2e07dec5c6b5a8a3d.js": "/cashkeeper/precache-manifest.a9a32a589ae1b4c2e07dec5c6b5a8a3d.js",
+    "service-worker.js": "/cashkeeper/service-worker.js"
+  }
+}
