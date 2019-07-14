@@ -5,7 +5,7 @@
   "homepage": "https://risenforces.github.io/cashkeeper-frontend",
   "scripts": {
     "start": "cra-alias start",
-    "build": "cra-alias build",
+    "build": "cra-alias build && cp build/index.html build/404.html",
     "test": "cra-alias test",
     "eject": "react-scripts eject",
     "flow": "flow",
