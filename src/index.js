@@ -4,11 +4,14 @@ import * as serviceWorker from './serviceWorker'
 
 import { ThemeProvider } from '@features/theme-provider'
 import { App } from 'App'
+import { Router } from '@lib/router'
 
 ReactDOM.render(
-  <ThemeProvider>
-    <App />
-  </ThemeProvider>,
+  <Router>
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  </Router>,
   document.getElementById('root')
 )
 

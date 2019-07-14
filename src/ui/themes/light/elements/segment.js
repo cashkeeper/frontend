@@ -1,4 +1,4 @@
-import { palette } from 'ui/lib/palette'
+import { palette } from '../../../lib/palette'
 
 export const segment = {
   colors: {

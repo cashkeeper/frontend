@@ -3,7 +3,7 @@ import * as React from 'react'
 import styled, { css } from 'styled-components'
 import { StyledCol } from '../col'
 import { useStore } from 'effector-react'
-import { $breakpoint, type Breakpoint } from '../../../../lib/models/breakpoint'
+import { $breakpoint, type Breakpoint } from '../../../../lib/models'
 import { breakpointPriorities as priorities } from '../../../../constants'
 
 type BreakpointComparison = '<sm' | '<md' | '<lg' | '<xl'

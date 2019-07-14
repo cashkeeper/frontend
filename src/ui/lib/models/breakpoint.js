@@ -1,3 +1,4 @@
+// @flow
 import { type Store } from 'effector'
 import { breakpoints } from '@ui/constants'
 import { $viewport } from './viewport'

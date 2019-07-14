@@ -5,22 +5,33 @@ import styled, { css } from 'styled-components'
 const select = props => props.theme.elements.segment
 
 const paddingShortcuts = {
-  small: 8,
-  normal: 16,
-  big: 24
+  small: [8, 12],
+  normal: [20, 24],
+  big: [28, 32]
 }
 
-const getPaddingValue = padding => {
-  const paddingX =
-    padding in paddingShortcuts ? paddingShortcuts[padding] : Number(padding)
-  const paddingY = Math.ceil(paddingX * 1.25)
+const getPaddingValue = (padding, paddingX, paddingY) => {
+  const [x, y] = paddingShortcuts[padding || 'normal']
 
-  return `${paddingY}px ${paddingX}px`
+  let leftX = x,
+    rightX = x,
+    topY = y,
+    bottomY = y
+
+  if (paddingX)
+    if (typeof paddingX === 'number') [leftX, rightX] = [paddingX, paddingX]
+    else [leftX, rightX] = paddingX
+
+  if (paddingY)
+    if (typeof paddingY === 'number') [topY, bottomY] = [paddingY, paddingY]
+    else [topY, bottomY] = paddingY
+
+  return `${topY}px ${rightX}px ${bottomY}px ${leftX}px`
 }
 
 const base = css`
   background-color: ${props => select(props).colors.background};
-  padding: ${props => getPaddingValue(props.padding)};
+  padding: ${props => props.padding};
   margin: 24px 0 16px;
 
   border-radius: 2px;
@@ -43,20 +54,31 @@ const StyledSegmentWithBorder = styled.div`
 const StyledSegmentWithShadow = styled.div`
   ${base}
 
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: ${props => props.theme.general.shadows.default};
 `
 
 type Props = {
   type?: 'with-shadow' | 'with-border',
-  padding?: number | 'small' | 'normal' | 'big',
+  padding?: 'small' | 'normal' | 'big',
+  paddingX?: number | number[],
+  paddingY?: number | number[],
   children: React.Node
 }
 
-export const Segment = ({ type, padding, children, ...rest }: Props) => {
+export const Segment = ({
+  type,
+  padding,
+  paddingX,
+  paddingY,
+  children,
+  ...rest
+}: Props) => {
+  const paddingValue = getPaddingValue(padding, paddingX, paddingY)
+
   switch (type) {
     case 'with-border':
       return (
-        <StyledSegmentWithBorder padding={padding} {...rest}>
+        <StyledSegmentWithBorder padding={paddingValue} {...rest}>
           {children}
         </StyledSegmentWithBorder>
       )
@@ -64,7 +86,7 @@ export const Segment = ({ type, padding, children, ...rest }: Props) => {
     case 'with-shadow':
     default:
       return (
-        <StyledSegmentWithShadow padding={padding} {...rest}>
+        <StyledSegmentWithShadow padding={paddingValue} {...rest}>
           {children}
         </StyledSegmentWithShadow>
       )
@@ -73,5 +95,7 @@ export const Segment = ({ type, padding, children, ...rest }: Props) => {
 
 Segment.defaultProps = {
   type: 'with-shadow',
-  padding: 'normal'
+  padding: 'normal',
+  paddingX: null,
+  paddingY: null
 }

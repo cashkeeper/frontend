@@ -1,21 +1,26 @@
 // @flow
 import * as React from 'react'
 import styled from 'styled-components'
+import { useStore } from 'effector-react'
+import { $isMobile } from '../../lib/models'
 
 const colorToPalette = (color, state, theme) => {
   return theme.elements.button[color][state]
 }
 
-const StyledButton = styled.button(({ color, theme }) => {
+const StyledButton = styled.button(({ color, isMobile, theme }) => {
   const initialColors = colorToPalette(color, 'initial', theme)
   const hoverColors = colorToPalette(color, 'hover', theme)
   const activeColors = colorToPalette(color, 'active', theme)
   const disabledColors = colorToPalette(color, 'disabled', theme)
 
+  const marginBottom = isMobile ? '0.5em' : 0
+
   return {
     fontSize: 14,
     padding: '9px 20px 7px',
     marginRight: '0.5em',
+    marginBottom,
     border: 'none',
     borderRadius: 5,
     backgroundColor: initialColors.background,
@@ -42,10 +47,6 @@ const StyledButton = styled.button(({ color, theme }) => {
 
     ':last-child': {
       marginRight: 0
-    },
-
-    '@media only screen and (max-width: 768px)': {
-      marginBottom: '0.5em'
     }
   }
 })
@@ -58,15 +59,17 @@ type Props = {
 }
 
 export const Button = ({ color, disabled, children, ...rest }: Props) => {
+  const isMobile = useStore($isMobile)
+
   if (disabled)
     return (
-      <StyledButton color={color} disabled={true}>
+      <StyledButton color={color} isMobile={isMobile} disabled={true}>
         {children}
       </StyledButton>
     )
 
   return (
-    <StyledButton color={color} {...rest}>
+    <StyledButton color={color} isMobile={isMobile} {...rest}>
       {children}
     </StyledButton>
   )

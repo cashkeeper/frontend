@@ -2,32 +2,40 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { useStore } from 'effector-react'
-import { $breakpoint, type Breakpoint } from '../../../../lib/models/breakpoint'
+import { $breakpoint, type Breakpoint } from '../../../../lib/models'
 import { containerMaxWidths } from '../../../../constants'
 
-const getMaxWidth = (breakpoint: Breakpoint) => {
+const getMaxWidth = (breakpoint: Breakpoint, isFluid: boolean) => {
+  if (isFluid) return '100%'
   return containerMaxWidths[breakpoint]
 }
 
 const StyledContainer = styled.div`
   width: 100%;
   max-width: ${props => props.maxWidth};
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 16px;
   padding-right: 16px;
 `
 
 type Props = {
+  fluid?: boolean,
   children: React.Node
 }
 
-export const Container = ({ children, ...rest }: Props) => {
+export const Container = ({ fluid, children, ...rest }: Props) => {
   const breakpoint = useStore($breakpoint)
 
-  const maxWidth = getMaxWidth(breakpoint)
+  const maxWidth = getMaxWidth(breakpoint, fluid || false)
 
   return (
     <StyledContainer maxWidth={maxWidth} {...rest}>
       {children}
     </StyledContainer>
   )
+}
+
+Container.defaultProps = {
+  fluid: false
 }

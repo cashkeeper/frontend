@@ -9,7 +9,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html,
-  body {
+  body,
+  #root {
     height: 100%;
   }
 

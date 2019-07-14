@@ -1,3 +1,4 @@
+// @flow
 import { Container, Row, Col } from './molecules'
 
 export const Grid = {

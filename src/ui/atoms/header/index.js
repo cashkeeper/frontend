@@ -49,10 +49,8 @@ type Props = {
   children: React.Node
 }
 
-export const Header = ({ size, children, ...rest }: Props) => {
-  const isSub = 'sub' in rest && rest.sub !== false
-
-  if (isSub)
+export const Header = ({ size, sub, children, ...rest }: Props) => {
+  if (sub)
     return (
       <StyledSubHeader size={size} {...rest}>
         {children}
@@ -67,5 +65,6 @@ export const Header = ({ size, children, ...rest }: Props) => {
 }
 
 Header.defaultProps = {
-  size: 'normal'
+  size: 'normal',
+  sub: false
 }

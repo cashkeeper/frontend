@@ -2,7 +2,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { useStore } from 'effector-react'
-import { $breakpoint } from '../../../../lib/models/breakpoint'
+import { $breakpoint } from '../../../../lib/models'
 import { columnsNumber } from '../../../../constants'
 
 const columnWidth = 100 / columnsNumber
@@ -35,7 +35,7 @@ const traverse = ({ breakpoint, settings, fallback }) => {
 }
 
 export const StyledCol = styled.div`
-  flex: 0 0 ${props => props.width};
+  flex: ${props => (props.grow ? 1 : 0)} 0 ${props => props.width};
   max-width: ${props => props.width};
   margin-left: ${props => props.offset};
   padding-left: 12px;
@@ -78,6 +78,8 @@ export const Col = ({
     fallback: 'auto'
   })
 
+  const grow = width === 'auto'
+
   const offset = traverse({
     breakpoint,
     settings: {
@@ -91,21 +93,8 @@ export const Col = ({
   })
 
   return (
-    <StyledCol width={width} offset={offset} {...rest}>
+    <StyledCol width={width} grow={grow} offset={offset} {...rest}>
       {children}
     </StyledCol>
   )
-}
-
-Col.defaultProps = {
-  xs: null,
-  sm: null,
-  md: null,
-  lg: null,
-  xl: null,
-  offsetXS: null,
-  offsetSM: null,
-  offsetMD: null,
-  offsetLG: null,
-  offsetXL: null
 }
