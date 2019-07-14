@@ -2,12 +2,15 @@
   "name": "cashkeeper-frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://risenforces.github.io/cashkeeper-frontend",
   "scripts": {
     "start": "cra-alias start",
     "build": "cra-alias build",
     "test": "cra-alias test",
     "eject": "react-scripts eject",
-    "flow": "flow"
+    "flow": "flow",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "effector": "^20.0.0",
@@ -25,7 +28,8 @@
   },
   "devDependencies": {
     "cra-alias": "^4.13.13",
-    "flow-bin": "^0.102.0"
+    "flow-bin": "^0.102.0",
+    "gh-pages": "^2.0.1"
   },
   "browserslist": {
     "production": [
