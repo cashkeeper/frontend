@@ -1,9 +1,11 @@
 // @flow
 import React, { useState, useCallback } from 'react'
+import PropTypes from 'prop-types'
 import { Block } from './atoms/block'
 import { Header } from './molecules/header'
-import { Content } from './molecules/content'
+import { ContentWrapper } from './atoms/content-wrapper'
 import { type Link } from '../../types'
+import { LinkList } from '@features/sidebar/molecules/link-list'
 
 type Props = {
   name: string,
@@ -21,8 +23,25 @@ export const MobileSidebar = ({ name, links, currentPath }: Props) => {
     <Block>
       <Header name={name} isOpen={isOpen} toggle={toggle} />
       {isOpen && (
-        <Content links={links} currentPath={currentPath} close={close} />
+        <ContentWrapper>
+          <LinkList
+            links={links}
+            currentPath={currentPath}
+            onLinkClick={close}
+          />
+        </ContentWrapper>
       )}
     </Block>
   )
+}
+
+MobileSidebar.propTypes = {
+  name: PropTypes.string.isRequired,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      to: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  currentPath: PropTypes.string.isRequired
 }

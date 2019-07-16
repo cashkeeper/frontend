@@ -1,5 +1,6 @@
 // @flow
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Icon } from '@ui'
 
@@ -25,6 +26,7 @@ const Title = styled.h2`
 
 const IconBlock = styled.div`
   cursor: pointer;
+  user-select: none;
   padding: 8px;
 `
 
@@ -43,4 +45,10 @@ export const Header = ({ name, isOpen, toggle }: Props) => {
       </IconBlock>
     </StyledHeader>
   )
+}
+
+Header.propTypes = {
+  name: PropTypes.string.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  toggle: PropTypes.func.isRequired
 }

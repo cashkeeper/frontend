@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useStore } from 'effector-react'
 import { $breakpoint, type Breakpoint } from '../../../../lib/models'
@@ -20,20 +21,24 @@ const StyledContainer = styled.div`
 `
 
 type Props = {
-  fluid?: boolean,
+  fluid: boolean,
   children: React.Node
 }
 
 export const Container = ({ fluid, children, ...rest }: Props) => {
   const breakpoint = useStore($breakpoint)
 
-  const maxWidth = getMaxWidth(breakpoint, fluid || false)
+  const maxWidth = getMaxWidth(breakpoint, fluid)
 
   return (
     <StyledContainer maxWidth={maxWidth} {...rest}>
       {children}
     </StyledContainer>
   )
+}
+
+Container.propTypes = {
+  fluid: PropTypes.bool.isRequired
 }
 
 Container.defaultProps = {

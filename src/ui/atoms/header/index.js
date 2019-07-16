@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
 const sizeShortcuts = {
@@ -62,6 +63,14 @@ export const Header = ({ size, sub, children, ...rest }: Props) => {
       {children}
     </StyledHeader>
   )
+}
+
+Header.propTypes = {
+  size: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf(['tiny', 'small', 'normal', 'big'])
+  ]).isRequired,
+  sub: PropTypes.bool.isRequired
 }
 
 Header.defaultProps = {

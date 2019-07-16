@@ -1,5 +1,6 @@
 // @flow
 import React from 'react'
+import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { MobileSidebar } from './features/mobile-sidebar'
 import { DesktopSidebar } from './features/desktop-sidebar'
@@ -20,6 +21,17 @@ const SidebarView = ({ name, links, isMobile, location }: Props) => {
   }
 
   return <DesktopSidebar name={name} links={links} currentPath={currentPath} />
+}
+
+SidebarView.propTypes = {
+  name: PropTypes.string.isRequired,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      to: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  isMobile: PropTypes.bool.isRequired
 }
 
 SidebarView.defaultProps = {

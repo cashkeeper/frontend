@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useStore } from 'effector-react'
 import { $isMobile } from '../../lib/models'
@@ -52,30 +53,46 @@ const StyledButton = styled.button(({ color, isMobile, theme }) => {
 })
 
 type Props = {
+  type?: 'button' | 'submit' | 'reset',
   color?: 'neutral' | 'success' | 'warning' | 'failure',
   disabled?: boolean,
   onClick?: (event: Event) => void,
   children: React.Node
 }
 
-export const Button = ({ color, disabled, children, ...rest }: Props) => {
+export const Button = ({ type, color, disabled, children, ...rest }: Props) => {
   const isMobile = useStore($isMobile)
 
   if (disabled)
     return (
-      <StyledButton color={color} isMobile={isMobile} disabled={true}>
+      <StyledButton
+        type={type}
+        color={color}
+        isMobile={isMobile}
+        disabled={true}
+        {...rest}
+      >
         {children}
       </StyledButton>
     )
 
   return (
-    <StyledButton color={color} isMobile={isMobile} {...rest}>
+    <StyledButton type={type} color={color} isMobile={isMobile} {...rest}>
       {children}
     </StyledButton>
   )
 }
 
+Button.propTypes = {
+  type: PropTypes.oneOf(['button', 'submit', 'reset']).isRequired,
+  color: PropTypes.oneOf(['neutral', 'success', 'warning', 'failure'])
+    .isRequired,
+  disabled: PropTypes.bool.isRequired,
+  onClick: PropTypes.func
+}
+
 Button.defaultProps = {
+  type: 'button',
   color: 'neutral',
   disabled: false
 }

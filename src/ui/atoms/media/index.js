@@ -1,8 +1,12 @@
 // @flow
 import * as React from 'react'
+import PropTypes from 'prop-types'
 import { useStore } from 'effector-react'
 import { $breakpoint, type Breakpoint } from '../../lib/models/breakpoint'
-import { breakpointPriorities as priorities } from '../../constants'
+import {
+  breakpointList,
+  breakpointPriorities as priorities
+} from '../../constants'
 
 const getIsVisible = ({
   from,
@@ -33,7 +37,7 @@ type Props = {
   children: React.Node
 }
 
-export const Media = ({ from, to, on, children, ...rest }: Props) => {
+export const Media = ({ from, to, on, children }: Props) => {
   const breakpoint = useStore($breakpoint)
 
   const isVisible = getIsVisible({ from, to, on, breakpoint })
@@ -41,6 +45,14 @@ export const Media = ({ from, to, on, children, ...rest }: Props) => {
   if (!isVisible) return null
 
   return children
+}
+
+const breakpointType = PropTypes.oneOf(breakpointList)
+
+Media.propTypes = {
+  from: breakpointType.isRequired,
+  to: breakpointType.isRequired,
+  on: PropTypes.oneOfType([breakpointType, PropTypes.arrayOf(breakpointType)])
 }
 
 Media.defaultProps = {

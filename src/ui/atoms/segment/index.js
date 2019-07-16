@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
 const select = props => props.theme.elements.segment
@@ -58,8 +59,8 @@ const StyledSegmentWithShadow = styled.div`
 `
 
 type Props = {
-  type?: 'with-shadow' | 'with-border',
-  padding?: 'small' | 'normal' | 'big',
+  type: 'with-shadow' | 'with-border',
+  padding: 'small' | 'normal' | 'big',
   paddingX?: number | number[],
   paddingY?: number | number[],
   children: React.Node
@@ -93,9 +94,19 @@ export const Segment = ({
   }
 }
 
+const axisPaddingType = PropTypes.oneOfType([
+  PropTypes.number,
+  PropTypes.arrayOf(PropTypes.number)
+])
+
+Segment.propTypes = {
+  type: PropTypes.oneOf(['with-shadow', 'with-border']).isRequired,
+  padding: PropTypes.oneOf(['small', 'normal', 'big']).isRequired,
+  paddingX: axisPaddingType,
+  paddingY: axisPaddingType
+}
+
 Segment.defaultProps = {
   type: 'with-shadow',
-  padding: 'normal',
-  paddingX: null,
-  paddingY: null
+  padding: 'normal'
 }

@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const StyledParagraph = styled.p`
@@ -25,6 +26,10 @@ export const Paragraph = ({ size, children, ...rest }: Props) => (
     {children}
   </StyledParagraph>
 )
+
+Paragraph.propTypes = {
+  size: PropTypes.number.isRequired
+}
 
 Paragraph.defaultProps = {
   size: 14

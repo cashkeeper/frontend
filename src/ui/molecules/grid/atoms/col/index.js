@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useStore } from 'effector-react'
 import { $breakpoint } from '../../../../lib/models'
@@ -97,4 +98,17 @@ export const Col = ({
       {children}
     </StyledCol>
   )
+}
+
+Col.propTypes = {
+  xs: PropTypes.number,
+  sm: PropTypes.number,
+  md: PropTypes.number,
+  lg: PropTypes.number,
+  xl: PropTypes.number,
+  offsetXS: PropTypes.number,
+  offsetSM: PropTypes.number,
+  offsetMD: PropTypes.number,
+  offsetLG: PropTypes.number,
+  offsetXL: PropTypes.number
 }

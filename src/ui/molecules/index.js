@@ -1,3 +1,2 @@
 // @flow
-
-export { Media } from './media'
+export { Grid } from './grid'

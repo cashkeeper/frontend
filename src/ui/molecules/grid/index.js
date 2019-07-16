@@ -1,5 +1,5 @@
 // @flow
-import { Container, Row, Col } from './molecules'
+import { Container, Row, Col } from './atoms'
 
 export const Grid = {
   Container,

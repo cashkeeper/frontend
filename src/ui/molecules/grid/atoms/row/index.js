@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { StyledCol } from '../col'
 import { useStore } from 'effector-react'
@@ -44,29 +45,24 @@ const StyledRow = styled.div`
   ${props => props.useGuttersY && withGuttersY}
 `
 
-const defaultGutters = {
-  X: true,
-  Y: false
-}
-
 type Props = {
-  guttersX?: UseGutters,
-  guttersY?: UseGutters,
+  guttersX: UseGutters,
+  guttersY: UseGutters,
   children: React.Node
 }
 
 export const Row = ({ guttersX, guttersY, children, ...rest }: Props) => {
   const breakpoint = useStore($breakpoint)
 
-  const isX = React.useMemo(
-    () => isGuttersUsed(guttersX || defaultGutters.X, breakpoint),
-    [guttersX, breakpoint]
-  )
+  const isX = React.useMemo(() => isGuttersUsed(guttersX, breakpoint), [
+    guttersX,
+    breakpoint
+  ])
 
-  const isY = React.useMemo(
-    () => isGuttersUsed(guttersY || defaultGutters.Y, breakpoint),
-    [guttersY, breakpoint]
-  )
+  const isY = React.useMemo(() => isGuttersUsed(guttersY, breakpoint), [
+    guttersY,
+    breakpoint
+  ])
 
   return (
     <StyledRow useGuttersX={isX} useGuttersY={isY} {...rest}>
@@ -75,7 +71,18 @@ export const Row = ({ guttersX, guttersY, children, ...rest }: Props) => {
   )
 }
 
+const guttersType = PropTypes.oneOfType([
+  PropTypes.bool,
+  PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  PropTypes.oneOf(['<sm', '<md', '<lg', '<xl'])
+])
+
+Row.propTypes = {
+  guttersX: guttersType.isRequired,
+  guttersY: guttersType.isRequired
+}
+
 Row.defaultProps = {
-  guttersX: defaultGutters.X,
-  guttersY: defaultGutters.Y
+  guttersX: true,
+  guttersY: false
 }

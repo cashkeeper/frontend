@@ -1,5 +1,6 @@
 // @flow
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const paths = {
@@ -19,18 +20,16 @@ type IconName = 'menu'
 
 type Props = {
   name: IconName,
-  size?: number,
-  width?: number,
-  height?: number
+  size?: number
 }
 
-export const Icon = ({ name, size, width, height, ...rest }: Props) => {
+export const Icon = ({ name, size, ...rest }: Props) => {
   const path = paths[name]
 
   if (!path) return null
 
   return (
-    <IconBlock width={width || size} height={height || size} {...rest}>
+    <IconBlock width={size} height={size} {...rest}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 448 512"
@@ -43,8 +42,11 @@ export const Icon = ({ name, size, width, height, ...rest }: Props) => {
   )
 }
 
+Icon.propTypes = {
+  name: PropTypes.oneOf(['menu']).isRequired,
+  size: PropTypes.number
+}
+
 Icon.defaultProps = {
-  size: 24,
-  width: null,
-  height: null
+  size: 24
 }

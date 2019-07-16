@@ -1,9 +1,10 @@
 // @flow
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Block } from './atoms/block'
 import { Header } from '@ui'
-import { Content } from './molecules/content'
 import { type Link } from '../../types'
+import { LinkList } from '../../molecules/link-list'
 
 type Props = {
   name: string,
@@ -15,7 +16,18 @@ export const DesktopSidebar = ({ name, links, currentPath }: Props) => {
   return (
     <Block>
       <Header>{name}</Header>
-      <Content links={links} currentPath={currentPath} />
+      <LinkList links={links} currentPath={currentPath} />
     </Block>
   )
+}
+
+DesktopSidebar.propTypes = {
+  name: PropTypes.string.isRequired,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      to: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  currentPath: PropTypes.string.isRequired
 }

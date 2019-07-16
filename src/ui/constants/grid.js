@@ -1,5 +1,7 @@
 // @flow
 
+export const breakpointList = ['xs', 'sm', 'md', 'lg', 'xl']
+
 export const breakpoints = {
   xs: 0,
   sm: 576,

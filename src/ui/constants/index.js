@@ -1,6 +1,7 @@
 // @flow
 
 export {
+  breakpointList,
   breakpoints,
   breakpointPriorities,
   containerMaxWidths,
