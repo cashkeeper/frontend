@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/cashkeeper-frontend/precache-manifest.2033bf043ec9bfada41222cb490c312a.js"
+  "/cashkeeper-frontend/precache-manifest.653eddb144309bcad53a95f85c69e2ad.js"
 );
 
 self.addEventListener('message', (event) => {
