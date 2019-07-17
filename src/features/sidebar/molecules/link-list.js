@@ -12,17 +12,18 @@ type Props = {
 }
 
 export const LinkList = ({ links, currentPath, onLinkClick }: Props) => {
-  const renderedLinks = links.map(link => (
-    <li key={link.name + '-' + link.to}>
-      {link.to === currentPath ? (
-        <ActiveSidebarLink>{link.name}</ActiveSidebarLink>
-      ) : (
-        <SidebarLink to={link.to} onClick={onLinkClick}>
-          {link.name}
-        </SidebarLink>
-      )}
-    </li>
-  ))
+  const renderedLinks = links.map(link => {
+    const key = link.name + '-' + link.to
+
+    if (link.to === currentPath)
+      return <ActiveSidebarLink key={key}>{link.name}</ActiveSidebarLink>
+
+    return (
+      <SidebarLink key={key} to={link.to} onClick={onLinkClick}>
+        {link.name}
+      </SidebarLink>
+    )
+  })
 
   return <List>{renderedLinks}</List>
 }
