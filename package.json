@@ -2,7 +2,7 @@
   "name": "cashkeeper-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://risenforces.github.io/cashkeeper-frontend",
+  "homepage": "https://cashkeeper.github.io/frontend",
   "scripts": {
     "start": "cra-alias start",
     "build": "cra-alias build && cp build/index.html build/404.html",
