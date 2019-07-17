@@ -2,8 +2,8 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { StyledCol } from '../col'
 import { useStore } from 'effector-react'
+import { StyledCol } from '../col'
 import { $breakpoint, type Breakpoint } from '../../../../lib/models'
 import { breakpointPriorities as priorities } from '../../../../constants'
 

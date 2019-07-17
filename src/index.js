@@ -1,10 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import * as serviceWorker from './serviceWorker'
-
 import { ThemeProvider } from '@features/theme-provider'
-import { App } from 'App'
 import { Router } from '@lib/router'
+import { App } from './App'
+import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
   <Router>

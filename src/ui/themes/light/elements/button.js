@@ -1,4 +1,4 @@
-import { createColorsAdvanced } from '@ui/lib/palette'
+import { createColorsAdvanced } from '../../../lib/palette'
 
 const SHAPE = 500
 

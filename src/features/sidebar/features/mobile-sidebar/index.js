@@ -1,11 +1,11 @@
 // @flow
 import React, { useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
+import { LinkList } from '@features/sidebar/molecules/link-list'
+import { type Link } from '../../types'
 import { Block } from './atoms/block'
 import { Header } from './molecules/header'
 import { ContentWrapper } from './atoms/content-wrapper'
-import { type Link } from '../../types'
-import { LinkList } from '@features/sidebar/molecules/link-list'
 
 type Props = {
   name: string,

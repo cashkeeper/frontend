@@ -2,8 +2,8 @@
 import * as React from 'react'
 import { ThemeProvider as SCThemeProvider } from 'styled-components'
 import { useStore } from 'effector-react'
-import { $theme } from './model'
 import { themes } from '@ui'
+import { $theme } from './model'
 
 type Props = {
   children: React.Node

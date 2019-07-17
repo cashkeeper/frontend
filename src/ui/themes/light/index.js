@@ -1,7 +1,7 @@
+import { palette } from '../../lib/palette'
 import { button } from './elements/button'
 import { header } from './elements/header'
 import { segment } from './elements/segment'
-import { palette } from '../../lib/palette'
 
 export const theme = {
   general: {
