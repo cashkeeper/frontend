@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/cashkeeper-frontend/static/js/main.1a7d1b10.chunk.js",
-    "main.js.map": "/cashkeeper-frontend/static/js/main.1a7d1b10.chunk.js.map",
-    "runtime~main.js": "/cashkeeper-frontend/static/js/runtime~main.e11cca3d.js",
-    "runtime~main.js.map": "/cashkeeper-frontend/static/js/runtime~main.e11cca3d.js.map",
-    "static/js/2.301c5e72.chunk.js": "/cashkeeper-frontend/static/js/2.301c5e72.chunk.js",
-    "static/js/2.301c5e72.chunk.js.map": "/cashkeeper-frontend/static/js/2.301c5e72.chunk.js.map",
-    "index.html": "/cashkeeper-frontend/index.html",
-    "precache-manifest.653eddb144309bcad53a95f85c69e2ad.js": "/cashkeeper-frontend/precache-manifest.653eddb144309bcad53a95f85c69e2ad.js",
-    "service-worker.js": "/cashkeeper-frontend/service-worker.js"
+    "main.js": "/frontend/static/js/main.e28c6791.chunk.js",
+    "main.js.map": "/frontend/static/js/main.e28c6791.chunk.js.map",
+    "runtime~main.js": "/frontend/static/js/runtime~main.f332d61a.js",
+    "runtime~main.js.map": "/frontend/static/js/runtime~main.f332d61a.js.map",
+    "static/js/2.6bf89b0c.chunk.js": "/frontend/static/js/2.6bf89b0c.chunk.js",
+    "static/js/2.6bf89b0c.chunk.js.map": "/frontend/static/js/2.6bf89b0c.chunk.js.map",
+    "index.html": "/frontend/index.html",
+    "precache-manifest.fdc188d0a46841f3be05f4cdbc65a6b2.js": "/frontend/precache-manifest.fdc188d0a46841f3be05f4cdbc65a6b2.js",
+    "service-worker.js": "/frontend/service-worker.js"
   }
 }
