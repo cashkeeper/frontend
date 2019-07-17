@@ -28,7 +28,7 @@
     "throttleit": "^1.0.0"
   },
   "devDependencies": {
-    "cra-alias": "^4.13.13",
+    "cra-alias": "^4.13.14",
     "flow-bin": "^0.102.0",
     "gh-pages": "^2.0.1"
   },

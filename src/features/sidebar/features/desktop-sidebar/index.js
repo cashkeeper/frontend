@@ -1,10 +1,10 @@
 // @flow
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Block } from './atoms/block'
 import { Header } from '@ui'
 import { type Link } from '../../types'
 import { LinkList } from '../../molecules/link-list'
+import { Block } from './atoms/block'
 
 type Props = {
   name: string,

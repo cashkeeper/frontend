@@ -4,6 +4,20 @@
   "rules": {
     "indent": ["warn", 2, { "SwitchCase": 1 }],
     "semi": ["warn", "never"],
-    "quotes": ["warn", "single"]
+    "quotes": ["warn", "single"],
+    "import/no-default-export": ["error", "never"],
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ]
+      }
+    ]
   }
 }
