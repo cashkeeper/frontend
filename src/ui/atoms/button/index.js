@@ -5,7 +5,15 @@ import styled from 'styled-components'
 import { useStore } from 'effector-react'
 import { $isMobile } from '../../lib/models'
 
-const colorToPalette = (color, state, theme) => {
+type Color = 'neutral' | 'success' | 'warning' | 'failure'
+type State = 'initial' | 'hover' | 'active' | 'disabled'
+
+type Palette = {
+  background: string,
+  text: string
+}
+
+const getPalette = (color: Color, state: State, theme: any): Palette => {
   return theme.elements.button[color][state]
 }
 
@@ -24,58 +32,82 @@ const sizeToValues = {
   }
 }
 
-const StyledButton = styled.button(({ size, color, isMobile, wide, theme }) => {
-  const initialColors = colorToPalette(color, 'initial', theme)
-  const hoverColors = colorToPalette(color, 'hover', theme)
-  const activeColors = colorToPalette(color, 'active', theme)
-  const disabledColors = colorToPalette(color, 'disabled', theme)
+type Size = 'small' | 'normal' | 'big'
+type SizeValues = {
+  font: string,
+  padding: string
+}
 
-  const sizeValues = sizeToValues[size]
+const getSizeValues = (size: Size): SizeValues => {
+  return sizeToValues[size]
+}
 
-  const marginBottom = isMobile ? '0.5em' : 0
-  const width = wide ? '100%' : 'auto'
+const StyledButton = styled.button(
+  ({
+    size,
+    color,
+    isMobile,
+    wide,
+    theme
+  }: {
+    size: Size,
+    color: Color,
+    isMobile: boolean,
+    wide: Boolean,
+    theme: any
+  }) => {
+    const initialColors = getPalette(color, 'initial', theme)
+    const hoverColors = getPalette(color, 'hover', theme)
+    const activeColors = getPalette(color, 'active', theme)
+    const disabledColors = getPalette(color, 'disabled', theme)
 
-  return {
-    width,
-    fontSize: sizeValues.font,
-    padding: sizeValues.padding,
-    marginRight: '0.5em',
-    marginBottom,
-    border: 'none',
-    borderRadius: 5,
-    backgroundColor: initialColors.background,
-    color: initialColors.text,
-    outline: 'none',
-    '-webkit-tap-highlight-color': 'transparent',
-    cursor: 'pointer',
-    transition: 'background-color 0.1s ease',
+    const sizeValues = getSizeValues(size)
 
-    ':hover': {
-      backgroundColor: hoverColors.background,
-      color: hoverColors.text
-    },
+    const marginBottom = isMobile ? '0.5em' : 0
+    const width = wide ? '100%' : 'auto'
 
-    ':active': {
-      backgroundColor: activeColors.background,
-      color: activeColors.text
-    },
+    return {
+      width,
+      fontSize: sizeValues.font,
+      padding: sizeValues.padding,
+      marginRight: '0.5em',
+      marginBottom,
+      border: 'none',
+      borderRadius: 5,
+      backgroundColor: initialColors.background,
+      color: initialColors.text,
+      outline: 'none',
+      '-webkit-tap-highlight-color': 'transparent',
+      cursor: 'pointer',
+      transition: 'background-color 0.1s ease',
 
-    ':disabled': {
-      backgroundColor: disabledColors.background,
-      color: disabledColors.text,
-      cursor: 'default'
-    },
+      ':hover': {
+        backgroundColor: hoverColors.background,
+        color: hoverColors.text
+      },
 
-    ':last-child': {
-      marginRight: 0
+      ':active': {
+        backgroundColor: activeColors.background,
+        color: activeColors.text
+      },
+
+      ':disabled': {
+        backgroundColor: disabledColors.background,
+        color: disabledColors.text,
+        cursor: 'default'
+      },
+
+      ':last-child': {
+        marginRight: 0
+      }
     }
   }
-})
+)
 
 type Props = {
   type: 'button' | 'submit' | 'reset',
-  size: 'small' | 'normal' | 'big',
-  color: 'neutral' | 'success' | 'warning' | 'failure',
+  size: Size,
+  color: Color,
   disabled: boolean,
   wide: boolean,
   onClick?: (event: Event) => void,

@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "cra-alias": "^4.13.14",
-    "flow-bin": "^0.102.0",
+    "flow-bin": "^0.103.0",
     "gh-pages": "^2.0.1"
   },
   "browserslist": {

@@ -14,8 +14,8 @@ const getIsVisible = ({
   on,
   breakpoint
 }: {
-  from?: Breakpoint,
-  to?: Breakpoint,
+  from: Breakpoint,
+  to: Breakpoint,
   on?: Breakpoint | Breakpoint[],
   breakpoint: Breakpoint
 }) => {
@@ -24,8 +24,8 @@ const getIsVisible = ({
     else return on.includes(breakpoint)
   }
 
-  if (from && priorities[from] > priorities[breakpoint]) return false
-  if (to && priorities[to] < priorities[breakpoint]) return false
+  if (priorities[from] > priorities[breakpoint]) return false
+  if (priorities[to] < priorities[breakpoint]) return false
 
   return true
 }
