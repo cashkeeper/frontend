@@ -45,8 +45,8 @@ const StyledHeader = styled.h2`
 `
 
 type Props = {
-  size?: number | 'tiny' | 'small' | 'normal' | 'big',
-  sub?: boolean,
+  size: number | 'tiny' | 'small' | 'normal' | 'big',
+  sub: boolean,
   children: React.Node
 }
 

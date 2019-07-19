@@ -31,8 +31,8 @@ const getIsVisible = ({
 }
 
 type Props = {
-  from?: Breakpoint,
-  to?: Breakpoint,
+  from: Breakpoint,
+  to: Breakpoint,
   on?: Breakpoint | Breakpoint[],
   children: React.Node
 }

@@ -20,7 +20,7 @@ type IconName = 'menu'
 
 type Props = {
   name: IconName,
-  size?: number
+  size: number
 }
 
 export const Icon = ({ name, size, ...rest }: Props) => {

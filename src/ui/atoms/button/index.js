@@ -9,17 +9,36 @@ const colorToPalette = (color, state, theme) => {
   return theme.elements.button[color][state]
 }
 
-const StyledButton = styled.button(({ color, isMobile, theme }) => {
+const sizeToValues = {
+  small: {
+    font: '12px',
+    padding: '8px 14px 6px'
+  },
+  normal: {
+    font: '14px',
+    padding: '9px 20px 7px'
+  },
+  big: {
+    font: '16px',
+    padding: '10px 26px 8px'
+  }
+}
+
+const StyledButton = styled.button(({ size, color, isMobile, wide, theme }) => {
   const initialColors = colorToPalette(color, 'initial', theme)
   const hoverColors = colorToPalette(color, 'hover', theme)
   const activeColors = colorToPalette(color, 'active', theme)
   const disabledColors = colorToPalette(color, 'disabled', theme)
 
+  const sizeValues = sizeToValues[size]
+
   const marginBottom = isMobile ? '0.5em' : 0
+  const width = wide ? '100%' : 'auto'
 
   return {
-    fontSize: 14,
-    padding: '9px 20px 7px',
+    width,
+    fontSize: sizeValues.font,
+    padding: sizeValues.padding,
     marginRight: '0.5em',
     marginBottom,
     border: 'none',
@@ -27,6 +46,7 @@ const StyledButton = styled.button(({ color, isMobile, theme }) => {
     backgroundColor: initialColors.background,
     color: initialColors.text,
     outline: 'none',
+    '-webkit-tap-highlight-color': 'transparent',
     cursor: 'pointer',
     transition: 'background-color 0.1s ease',
 
@@ -53,23 +73,36 @@ const StyledButton = styled.button(({ color, isMobile, theme }) => {
 })
 
 type Props = {
-  type?: 'button' | 'submit' | 'reset',
-  color?: 'neutral' | 'success' | 'warning' | 'failure',
-  disabled?: boolean,
+  type: 'button' | 'submit' | 'reset',
+  size: 'small' | 'normal' | 'big',
+  color: 'neutral' | 'success' | 'warning' | 'failure',
+  disabled: boolean,
+  wide: boolean,
   onClick?: (event: Event) => void,
   children: React.Node
 }
 
-export const Button = ({ type, color, disabled, children, ...rest }: Props) => {
+export const Button = ({
+  type,
+  size,
+  color,
+  disabled,
+  wide,
+  onClick,
+  children,
+  ...rest
+}: Props) => {
   const isMobile = useStore($isMobile)
 
   if (disabled)
     return (
       <StyledButton
         type={type}
+        size={size}
         color={color}
         isMobile={isMobile}
         disabled={true}
+        wide={wide}
         {...rest}
       >
         {children}
@@ -77,7 +110,15 @@ export const Button = ({ type, color, disabled, children, ...rest }: Props) => {
     )
 
   return (
-    <StyledButton type={type} color={color} isMobile={isMobile} {...rest}>
+    <StyledButton
+      type={type}
+      size={size}
+      color={color}
+      isMobile={isMobile}
+      wide={wide}
+      onClick={onClick}
+      {...rest}
+    >
       {children}
     </StyledButton>
   )
@@ -85,14 +126,17 @@ export const Button = ({ type, color, disabled, children, ...rest }: Props) => {
 
 Button.propTypes = {
   type: PropTypes.oneOf(['button', 'submit', 'reset']).isRequired,
+  size: PropTypes.oneOf(['small', 'normal', 'big']).isRequired,
   color: PropTypes.oneOf(['neutral', 'success', 'warning', 'failure'])
     .isRequired,
   disabled: PropTypes.bool.isRequired,
-  onClick: PropTypes.func
+  wide: PropTypes.bool.isRequired
 }
 
 Button.defaultProps = {
   type: 'button',
+  size: 'normal',
   color: 'neutral',
-  disabled: false
+  disabled: false,
+  wide: false
 }

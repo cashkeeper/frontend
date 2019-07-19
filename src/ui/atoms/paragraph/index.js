@@ -17,7 +17,7 @@ const StyledParagraph = styled.p`
 `
 
 type Props = {
-  size?: number,
+  size: number,
   children: React.Node
 }
 
