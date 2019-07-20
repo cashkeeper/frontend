@@ -59,16 +59,16 @@ const StyledSegmentWithShadow = styled.div`
 `
 
 type Props = {
-  type: 'with-shadow' | 'with-border',
-  padding: 'small' | 'normal' | 'big',
+  type?: 'with-shadow' | 'with-border',
+  padding?: 'small' | 'normal' | 'big',
   paddingX?: number | number[],
   paddingY?: number | number[],
   children: React.Node
 }
 
 export const Segment = ({
-  type,
-  padding,
+  type = 'with-shadow',
+  padding = 'normal',
   paddingX,
   paddingY,
   children,
@@ -100,13 +100,8 @@ const axisPaddingType = PropTypes.oneOfType([
 ])
 
 Segment.propTypes = {
-  type: PropTypes.oneOf(['with-shadow', 'with-border']).isRequired,
-  padding: PropTypes.oneOf(['small', 'normal', 'big']).isRequired,
+  type: PropTypes.oneOf(['with-shadow', 'with-border']),
+  padding: PropTypes.oneOf(['small', 'normal', 'big']),
   paddingX: axisPaddingType,
   paddingY: axisPaddingType
-}
-
-Segment.defaultProps = {
-  type: 'with-shadow',
-  padding: 'normal'
 }

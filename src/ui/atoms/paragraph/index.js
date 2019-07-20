@@ -17,20 +17,16 @@ const StyledParagraph = styled.p`
 `
 
 type Props = {
-  size: number,
+  size?: number,
   children: React.Node
 }
 
-export const Paragraph = ({ size, children, ...rest }: Props) => (
+export const Paragraph = ({ size = 14, children, ...rest }: Props) => (
   <StyledParagraph size={size} {...rest}>
     {children}
   </StyledParagraph>
 )
 
 Paragraph.propTypes = {
-  size: PropTypes.number.isRequired
-}
-
-Paragraph.defaultProps = {
-  size: 14
+  size: PropTypes.number
 }

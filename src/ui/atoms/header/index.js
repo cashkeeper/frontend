@@ -45,12 +45,17 @@ const StyledHeader = styled.h2`
 `
 
 type Props = {
-  size: number | 'tiny' | 'small' | 'normal' | 'big',
-  sub: boolean,
+  size?: number | 'tiny' | 'small' | 'normal' | 'big',
+  sub?: boolean,
   children: React.Node
 }
 
-export const Header = ({ size, sub, children, ...rest }: Props) => {
+export const Header = ({
+  size = 'normal',
+  sub = false,
+  children,
+  ...rest
+}: Props) => {
   if (sub)
     return (
       <StyledSubHeader size={size} {...rest}>
@@ -69,11 +74,6 @@ Header.propTypes = {
   size: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf(['tiny', 'small', 'normal', 'big'])
-  ]).isRequired,
-  sub: PropTypes.bool.isRequired
-}
-
-Header.defaultProps = {
-  size: 'normal',
-  sub: false
+  ]),
+  sub: PropTypes.bool
 }

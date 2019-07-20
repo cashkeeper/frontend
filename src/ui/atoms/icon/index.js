@@ -20,10 +20,10 @@ type IconName = 'menu'
 
 type Props = {
   name: IconName,
-  size: number
+  size?: number
 }
 
-export const Icon = ({ name, size, ...rest }: Props) => {
+export const Icon = ({ name, size = 24, ...rest }: Props) => {
   const path = paths[name]
 
   if (!path) return null
@@ -45,8 +45,4 @@ export const Icon = ({ name, size, ...rest }: Props) => {
 Icon.propTypes = {
   name: PropTypes.oneOf(['menu']).isRequired,
   size: PropTypes.number
-}
-
-Icon.defaultProps = {
-  size: 24
 }

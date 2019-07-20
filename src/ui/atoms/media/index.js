@@ -31,13 +31,13 @@ const getIsVisible = ({
 }
 
 type Props = {
-  from: Breakpoint,
-  to: Breakpoint,
+  from?: Breakpoint,
+  to?: Breakpoint,
   on?: Breakpoint | Breakpoint[],
   children: React.Node
 }
 
-export const Media = ({ from, to, on, children }: Props) => {
+export const Media = ({ from = 'xs', to = 'xl', on, children }: Props) => {
   const breakpoint = useStore($breakpoint)
 
   const isVisible = getIsVisible({ from, to, on, breakpoint })
@@ -50,12 +50,7 @@ export const Media = ({ from, to, on, children }: Props) => {
 const breakpointType = PropTypes.oneOf(breakpointList)
 
 Media.propTypes = {
-  from: breakpointType.isRequired,
-  to: breakpointType.isRequired,
+  from: breakpointType,
+  to: breakpointType,
   on: PropTypes.oneOfType([breakpointType, PropTypes.arrayOf(breakpointType)])
-}
-
-Media.defaultProps = {
-  from: 'xs',
-  to: 'xl'
 }

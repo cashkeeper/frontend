@@ -105,21 +105,21 @@ const StyledButton = styled.button(
 )
 
 type Props = {
-  type: 'button' | 'submit' | 'reset',
-  size: Size,
-  color: Color,
-  disabled: boolean,
-  fluid: boolean,
+  type?: 'button' | 'submit' | 'reset',
+  size?: Size,
+  color?: Color,
+  disabled?: boolean,
+  fluid?: boolean,
   onClick?: (event: Event) => void,
   children: React.Node
 }
 
 export const Button = ({
-  type,
-  size,
-  color,
-  disabled,
-  fluid,
+  type = 'button',
+  size = 'normal',
+  color = 'neutral',
+  disabled = false,
+  fluid = false,
   onClick,
   children,
   ...rest
@@ -157,18 +157,9 @@ export const Button = ({
 }
 
 Button.propTypes = {
-  type: PropTypes.oneOf(['button', 'submit', 'reset']).isRequired,
-  size: PropTypes.oneOf(['small', 'normal', 'big']).isRequired,
-  color: PropTypes.oneOf(['neutral', 'success', 'warning', 'failure'])
-    .isRequired,
-  disabled: PropTypes.bool.isRequired,
-  fluid: PropTypes.bool.isRequired
-}
-
-Button.defaultProps = {
-  type: 'button',
-  size: 'normal',
-  color: 'neutral',
-  disabled: false,
-  fluid: false
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
+  size: PropTypes.oneOf(['small', 'normal', 'big']),
+  color: PropTypes.oneOf(['neutral', 'success', 'warning', 'failure']),
+  disabled: PropTypes.bool,
+  fluid: PropTypes.bool
 }

@@ -21,11 +21,11 @@ const StyledContainer = styled.div`
 `
 
 type Props = {
-  fluid: boolean,
+  fluid?: boolean,
   children: React.Node
 }
 
-export const Container = ({ fluid, children, ...rest }: Props) => {
+export const Container = ({ fluid = false, children, ...rest }: Props) => {
   const breakpoint = useStore($breakpoint)
 
   const maxWidth = getMaxWidth(breakpoint, fluid)
@@ -38,9 +38,5 @@ export const Container = ({ fluid, children, ...rest }: Props) => {
 }
 
 Container.propTypes = {
-  fluid: PropTypes.bool.isRequired
-}
-
-Container.defaultProps = {
-  fluid: false
+  fluid: PropTypes.bool
 }

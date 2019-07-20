@@ -7,13 +7,18 @@ import { DesktopSidebar } from './features/desktop-sidebar'
 import { type Link } from './types'
 
 type Props = {
-  name: string,
+  name?: string,
   links: Link[],
-  isMobile: boolean,
+  isMobile?: boolean,
   location: Location
 }
 
-const SidebarView = ({ name, links, isMobile, location }: Props) => {
+const SidebarView = ({
+  name = 'Menu',
+  links,
+  isMobile = false,
+  location
+}: Props) => {
   const { pathname: currentPath } = location
 
   if (isMobile) {
@@ -24,19 +29,14 @@ const SidebarView = ({ name, links, isMobile, location }: Props) => {
 }
 
 SidebarView.propTypes = {
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   links: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       to: PropTypes.string.isRequired
     })
   ).isRequired,
-  isMobile: PropTypes.bool.isRequired
-}
-
-SidebarView.defaultProps = {
-  name: 'Menu',
-  isMobile: false
+  isMobile: PropTypes.bool
 }
 
 export const Sidebar = withRouter(SidebarView)

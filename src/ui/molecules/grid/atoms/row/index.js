@@ -46,12 +46,17 @@ const StyledRow = styled.div`
 `
 
 type Props = {
-  guttersX: UseGutters,
-  guttersY: UseGutters,
+  guttersX?: UseGutters,
+  guttersY?: UseGutters,
   children: React.Node
 }
 
-export const Row = ({ guttersX, guttersY, children, ...rest }: Props) => {
+export const Row = ({
+  guttersX = true,
+  guttersY = false,
+  children,
+  ...rest
+}: Props) => {
   const breakpoint = useStore($breakpoint)
 
   const isX = React.useMemo(() => isGuttersUsed(guttersX, breakpoint), [
@@ -78,11 +83,6 @@ const guttersType = PropTypes.oneOfType([
 ])
 
 Row.propTypes = {
-  guttersX: guttersType.isRequired,
-  guttersY: guttersType.isRequired
-}
-
-Row.defaultProps = {
-  guttersX: true,
-  guttersY: false
+  guttersX: guttersType,
+  guttersY: guttersType
 }
