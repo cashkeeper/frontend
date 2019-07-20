@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components'
 import { Icon } from '@ui'
 
 const withBorder = css`
-  border-bottom: 1px solid ${props => props.theme.general.colors.border};
+  border-bottom: 1px solid ${props => props.theme.general.colors.borderLight};
 `
 
 const StyledHeader = styled.div`

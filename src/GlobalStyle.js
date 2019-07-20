@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
-    font-family: "Fira Sans", sans-serif;
+    font-family: ${props => props.theme.general.fontFamily}, sans-serif;
     color: ${props => props.theme.general.colors.text};
     background-color: ${props => props.theme.general.colors.background};
     -webkit-font-smoothing: antialiased;

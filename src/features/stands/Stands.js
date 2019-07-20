@@ -8,6 +8,7 @@ import { innerRoutes } from './inner-routes'
 
 const links = [
   { name: 'Buttons', to: '/stands/buttons' },
+  { name: 'Inputs', to: '/stands/inputs' },
   { name: 'Headers', to: '/stands/headers' },
   { name: 'Segments', to: '/stands/segments' },
   { name: 'Paragraphs', to: '/stands/paragraphs' },

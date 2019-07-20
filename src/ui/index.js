@@ -2,6 +2,8 @@
 export {
   Button,
   ButtonGroup,
+  Input,
+  InputGroup,
   Header,
   Paragraph,
   Icon,
