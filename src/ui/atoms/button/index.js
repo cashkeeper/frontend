@@ -47,13 +47,13 @@ const StyledButton = styled.button(
     size,
     color,
     isMobile,
-    wide,
+    fluid,
     theme
   }: {
     size: Size,
     color: Color,
     isMobile: boolean,
-    wide: Boolean,
+    fluid: boolean,
     theme: any
   }) => {
     const initialColors = getPalette(color, 'initial', theme)
@@ -64,7 +64,7 @@ const StyledButton = styled.button(
     const sizeValues = getSizeValues(size)
 
     const marginBottom = isMobile ? '0.5em' : 0
-    const width = wide ? '100%' : 'auto'
+    const width = fluid ? '100%' : 'auto'
 
     return {
       width,
@@ -109,7 +109,7 @@ type Props = {
   size: Size,
   color: Color,
   disabled: boolean,
-  wide: boolean,
+  fluid: boolean,
   onClick?: (event: Event) => void,
   children: React.Node
 }
@@ -119,7 +119,7 @@ export const Button = ({
   size,
   color,
   disabled,
-  wide,
+  fluid,
   onClick,
   children,
   ...rest
@@ -134,7 +134,7 @@ export const Button = ({
         color={color}
         isMobile={isMobile}
         disabled={true}
-        wide={wide}
+        fluid={fluid}
         {...rest}
       >
         {children}
@@ -147,7 +147,7 @@ export const Button = ({
       size={size}
       color={color}
       isMobile={isMobile}
-      wide={wide}
+      fluid={fluid}
       onClick={onClick}
       {...rest}
     >
@@ -162,7 +162,7 @@ Button.propTypes = {
   color: PropTypes.oneOf(['neutral', 'success', 'warning', 'failure'])
     .isRequired,
   disabled: PropTypes.bool.isRequired,
-  wide: PropTypes.bool.isRequired
+  fluid: PropTypes.bool.isRequired
 }
 
 Button.defaultProps = {
@@ -170,5 +170,5 @@ Button.defaultProps = {
   size: 'normal',
   color: 'neutral',
   disabled: false,
-  wide: false
+  fluid: false
 }

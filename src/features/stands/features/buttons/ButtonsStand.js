@@ -75,9 +75,9 @@ export const ButtonsStand = () => (
       </Button>
     </Segment>
 
-    <Header size="small">Wide</Header>
+    <Header size="small">Fluid</Header>
     <Segment>
-      <Button wide>Wide button</Button>
+      <Button fluid>Fluid button</Button>
     </Segment>
   </Grid.Container>
 )
