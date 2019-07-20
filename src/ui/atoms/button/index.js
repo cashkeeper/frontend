@@ -40,18 +40,15 @@ const getSizeValues = (size: Size): SizeValues => {
   return sizeToValues[size]
 }
 
+type StyledProps = {
+  size: Size,
+  color: Color,
+  fluid: boolean,
+  theme: any
+}
+
 const StyledButton = styled.button(
-  ({
-    size,
-    color,
-    fluid,
-    theme
-  }: {
-    size: Size,
-    color: Color,
-    fluid: boolean,
-    theme: any
-  }) => {
+  ({ size, color, fluid, theme }: StyledProps) => {
     const initialColors = getPalette(color, 'initial', theme)
     const hoverColors = getPalette(color, 'hover', theme)
     const activeColors = getPalette(color, 'active', theme)
@@ -115,31 +112,16 @@ export const Button = ({
   color = 'neutral',
   disabled = false,
   fluid = false,
-  onClick,
   children,
   ...rest
 }: Props) => {
-  if (disabled)
-    return (
-      <StyledButton
-        type={type}
-        size={size}
-        color={color}
-        disabled={true}
-        fluid={fluid}
-        {...rest}
-      >
-        {children}
-      </StyledButton>
-    )
-
   return (
     <StyledButton
       type={type}
       size={size}
       color={color}
+      disabled={disabled}
       fluid={fluid}
-      onClick={onClick}
       {...rest}
     >
       {children}
