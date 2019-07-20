@@ -1,5 +1,13 @@
 // @flow
-export { Button, Header, Paragraph, Icon, Segment, Media } from './atoms'
+export {
+  Button,
+  ButtonGroup,
+  Header,
+  Paragraph,
+  Icon,
+  Segment,
+  Media
+} from './atoms'
 export { Grid } from './molecules'
 export {
   $breakpoint,

@@ -2,8 +2,6 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { useStore } from 'effector-react'
-import { $isMobile } from '../../lib/models'
 
 type Color = 'neutral' | 'success' | 'warning' | 'failure'
 type State = 'initial' | 'hover' | 'active' | 'disabled'
@@ -46,13 +44,11 @@ const StyledButton = styled.button(
   ({
     size,
     color,
-    isMobile,
     fluid,
     theme
   }: {
     size: Size,
     color: Color,
-    isMobile: boolean,
     fluid: boolean,
     theme: any
   }) => {
@@ -63,15 +59,14 @@ const StyledButton = styled.button(
 
     const sizeValues = getSizeValues(size)
 
-    const marginBottom = isMobile ? '0.5em' : 0
     const width = fluid ? '100%' : 'auto'
 
     return {
       width,
       fontSize: sizeValues.font,
       padding: sizeValues.padding,
-      marginRight: '0.5em',
-      marginBottom,
+      marginRight: 8,
+      marginBottom: 8,
       border: 'none',
       borderRadius: 5,
       backgroundColor: initialColors.background,
@@ -124,15 +119,12 @@ export const Button = ({
   children,
   ...rest
 }: Props) => {
-  const isMobile = useStore($isMobile)
-
   if (disabled)
     return (
       <StyledButton
         type={type}
         size={size}
         color={color}
-        isMobile={isMobile}
         disabled={true}
         fluid={fluid}
         {...rest}
@@ -146,7 +138,6 @@ export const Button = ({
       type={type}
       size={size}
       color={color}
-      isMobile={isMobile}
       fluid={fluid}
       onClick={onClick}
       {...rest}
