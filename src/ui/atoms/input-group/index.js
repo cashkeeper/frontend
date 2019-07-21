@@ -11,19 +11,11 @@ const StyledInputGroup = styled.div`
   }
 `
 
-const InputGroupInner = styled.div`
-  margin-bottom: -8px;
-`
-
 type Props = {
   style?: CSS<string | number>,
   children: React.Node
 }
 
 export const InputGroup = ({ children, ...rest }: Props) => {
-  return (
-    <StyledInputGroup {...rest}>
-      <InputGroupInner>{children}</InputGroupInner>
-    </StyledInputGroup>
-  )
+  return <StyledInputGroup {...rest}>{children}</StyledInputGroup>
 }

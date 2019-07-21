@@ -1,7 +1,7 @@
 // @flow
 import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { type Properties as CSS } from 'csstype'
 
 const sizeToValues = {
@@ -44,15 +44,8 @@ const select = props => {
   return props.theme.elements.input
 }
 
-const passwordInputStyles = css`
-  font-family: monospace;
-
-  &::placeholder {
-    font-family: ${props => props.theme.general.fontFamily}, sans-serif;
-  }
-`
-
 const StyledTextArea = styled.textarea`
+  display: block;
   width: ${props => props.width};
   max-width: 100%;
   margin-bottom: 8px;
@@ -87,7 +80,9 @@ const StyledTextArea = styled.textarea`
     opacity: 0.6;
   }
 
-  ${props => props.type === 'password' && passwordInputStyles}
+  &:last-child {
+    margin-bottom: 0;
+  }
 `
 
 type Props = {
@@ -97,6 +92,7 @@ type Props = {
   rows?: number,
   resizeX?: boolean,
   resizeY?: boolean,
+  name?: string,
   placeholder?: string,
   value?: string,
   defaultValue?: string,
@@ -111,6 +107,7 @@ export const TextArea = ({
   rows = 2,
   resizeX = false,
   resizeY = true,
+  name,
   placeholder,
   value,
   defaultValue,
@@ -136,6 +133,8 @@ export const TextArea = ({
       resizeValue={resizeValue}
       rows={rows}
       disabled={disabled}
+      id={name}
+      name={name}
       placeholder={placeholder}
       value={value}
       defaultValue={defaultValue}
@@ -152,6 +151,7 @@ TextArea.propTypes = {
   rows: PropTypes.number,
   resizeX: PropTypes.bool,
   resizeY: PropTypes.bool,
+  name: PropTypes.string,
   placeholder: PropTypes.string,
   value: PropTypes.string,
   defaultValue: PropTypes.string,

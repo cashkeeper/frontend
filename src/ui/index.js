@@ -2,6 +2,7 @@
 export {
   Button,
   ButtonGroup,
+  InputLabel,
   Input,
   TextArea,
   InputGroup,

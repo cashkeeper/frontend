@@ -46,6 +46,8 @@ const passwordInputStyles = css`
 `
 
 const StyledInput = styled.input`
+  ${props => props.type === 'password' && passwordInputStyles}
+
   width: ${props => props.width};
   max-width: 100%;
   margin-bottom: 8px;
@@ -78,7 +80,9 @@ const StyledInput = styled.input`
     opacity: 0.6;
   }
 
-  ${props => props.type === 'password' && passwordInputStyles}
+  &:last-child {
+    margin-bottom: 0;
+  }
 `
 
 type Props = {
@@ -86,6 +90,7 @@ type Props = {
   size?: Size,
   disabled?: boolean,
   fluid?: boolean,
+  name?: string,
   placeholder?: string,
   value?: string,
   defaultValue?: string,
@@ -98,6 +103,7 @@ export const Input = ({
   size = 'normal',
   disabled = false,
   fluid = false,
+  name,
   placeholder,
   value,
   defaultValue,
@@ -121,6 +127,8 @@ export const Input = ({
       sizeValues={sizeValues}
       width={width}
       disabled={disabled}
+      id={name}
+      name={name}
       placeholder={placeholder}
       value={value}
       defaultValue={defaultValue}
@@ -135,6 +143,7 @@ Input.propTypes = {
   size: PropTypes.oneOf(['small', 'normal', 'big']),
   disabled: PropTypes.bool,
   fluid: PropTypes.bool,
+  name: PropTypes.string,
   placeholder: PropTypes.string,
   value: PropTypes.string,
   defaultValue: PropTypes.string,

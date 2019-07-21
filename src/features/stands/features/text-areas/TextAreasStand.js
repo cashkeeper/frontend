@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import { Header, Segment, Grid, TextArea, InputGroup } from '@ui'
+import { Header, Segment, Grid, TextArea } from '@ui'
 
 export const TextAreasStand = () => (
   <Grid.Container>
@@ -8,64 +8,47 @@ export const TextAreasStand = () => (
 
     <Header size="small">Default</Header>
     <Segment>
-      <InputGroup>
-        <TextArea placeholder="Enter value.." />
-      </InputGroup>
+      <TextArea placeholder="Enter value.." />
     </Segment>
 
     <Header size="small">Disabled</Header>
     <Segment>
-      <InputGroup>
-        <TextArea disabled={true} placeholder="Enter value.." />
-      </InputGroup>
+      <TextArea disabled={true} placeholder="Enter value.." />
     </Segment>
 
     <Header size="small">4 rows</Header>
     <Segment>
-      <InputGroup>
-        <TextArea rows={4} placeholder="Enter value.." />
-      </InputGroup>
+      <TextArea rows={4} placeholder="Enter value.." />
     </Segment>
 
     <Header size="small">Min sizes</Header>
     <Segment>
       <Header size="tiny">400px min-width</Header>
-      <InputGroup>
-        <TextArea
-          style={{ minWidth: 400 }}
-          resizeX={true}
-          placeholder="Enter value.."
-        />
-      </InputGroup>
+      <TextArea
+        style={{ minWidth: 400 }}
+        resizeX={true}
+        placeholder="Enter value.."
+      />
+
       <Header size="tiny">200px min-height</Header>
-      <InputGroup>
-        <TextArea style={{ minHeight: 200 }} placeholder="Enter value.." />
-      </InputGroup>
+      <TextArea style={{ minHeight: 200 }} placeholder="Enter value.." />
     </Segment>
 
     <Header size="small">Sizes</Header>
     <Segment>
       <Header size="tiny">Small</Header>
-      <InputGroup>
-        <TextArea size="small" placeholder="Enter value.." />
-      </InputGroup>
+      <TextArea size="small" placeholder="Enter value.." />
 
       <Header size="tiny">Normal</Header>
-      <InputGroup>
-        <TextArea size="normal" placeholder="Enter value.." />
-      </InputGroup>
+      <TextArea size="normal" placeholder="Enter value.." />
 
       <Header size="tiny">Big</Header>
-      <InputGroup>
-        <TextArea size="big" placeholder="Enter value.." />
-      </InputGroup>
+      <TextArea size="big" placeholder="Enter value.." />
     </Segment>
 
     <Header size="small">Fluid</Header>
     <Segment>
-      <InputGroup>
-        <TextArea fluid placeholder="Enter value.." />
-      </InputGroup>
+      <TextArea fluid placeholder="Enter value.." />
     </Segment>
   </Grid.Container>
 )
