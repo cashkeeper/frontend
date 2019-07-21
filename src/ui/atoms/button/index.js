@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 type Color = 'neutral' | 'success' | 'warning' | 'failure'
-type State = 'initial' | 'hover' | 'active' | 'disabled'
+type State = 'initial' | 'hover' | 'active'
 
 type Palette = {
   background: string,
@@ -52,7 +52,6 @@ const StyledButton = styled.button(
     const initialColors = getPalette(color, 'initial', theme)
     const hoverColors = getPalette(color, 'hover', theme)
     const activeColors = getPalette(color, 'active', theme)
-    const disabledColors = getPalette(color, 'disabled', theme)
 
     const sizeValues = getSizeValues(size)
 
@@ -84,8 +83,9 @@ const StyledButton = styled.button(
       },
 
       ':disabled': {
-        backgroundColor: disabledColors.background,
-        color: disabledColors.text,
+        backgroundColor: initialColors.background,
+        color: initialColors.text,
+        opacity: 0.6,
         cursor: 'default'
       },
 
