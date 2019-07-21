@@ -3,6 +3,7 @@ export {
   Button,
   ButtonGroup,
   Input,
+  TextArea,
   InputGroup,
   Header,
   Paragraph,
