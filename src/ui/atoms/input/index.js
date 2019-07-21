@@ -6,15 +6,15 @@ import styled, { css } from 'styled-components'
 const sizeToValues = {
   small: {
     font: '12px',
-    padding: '7px 10px'
+    padding: '8px 11px'
   },
   normal: {
     font: '14px',
-    padding: '9px 13px'
+    padding: '9px 12px'
   },
   big: {
     font: '16px',
-    padding: '11px 16px'
+    padding: '11px 14px'
   }
 }
 
