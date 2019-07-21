@@ -18,15 +18,15 @@ const getPalette = (color: Color, state: State, theme: any): Palette => {
 const sizeToValues = {
   small: {
     font: '12px',
-    padding: '9px 14px 7px'
+    padding: '8px 16px 6px'
   },
   normal: {
     font: '14px',
-    padding: '10px 17px 8px'
+    padding: '9px 18px 7px'
   },
   big: {
     font: '16px',
-    padding: '11px 20px 9px'
+    padding: '10px 20px 8px'
   }
 }
 
@@ -60,6 +60,7 @@ const StyledButton = styled.button(
     return {
       width,
       fontSize: sizeValues.font,
+      lineHeight: 1.4,
       padding: sizeValues.padding,
       marginRight: 8,
       marginBottom: 8,
