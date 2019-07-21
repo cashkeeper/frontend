@@ -3,6 +3,7 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useStore } from 'effector-react'
+import { type Properties as CSS } from 'csstype'
 import { $breakpoint, type Breakpoint } from '../../../../lib/models'
 import { containerMaxWidths } from '../../../../constants'
 
@@ -22,6 +23,7 @@ const StyledContainer = styled.div`
 
 type Props = {
   fluid?: boolean,
+  style?: CSS<string | number>,
   children: React.Node
 }
 

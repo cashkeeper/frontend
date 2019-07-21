@@ -2,6 +2,7 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { type Properties as CSS } from 'csstype'
 
 const StyledParagraph = styled.p`
   font-size: ${props => props.size}px;
@@ -18,6 +19,7 @@ const StyledParagraph = styled.p`
 
 type Props = {
   size?: number,
+  style?: CSS<string | number>,
   children: React.Node
 }
 

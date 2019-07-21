@@ -3,6 +3,7 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { useStore } from 'effector-react'
+import { type Properties as CSS } from 'csstype'
 import { StyledCol } from '../col'
 import { $breakpoint, type Breakpoint } from '../../../../lib/models'
 import { breakpointPriorities as priorities } from '../../../../constants'
@@ -48,6 +49,7 @@ const StyledRow = styled.div`
 type Props = {
   guttersX?: UseGutters,
   guttersY?: UseGutters,
+  style?: CSS<string | number>,
   children: React.Node
 }
 

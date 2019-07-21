@@ -2,6 +2,7 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import { type Properties as CSS } from 'csstype'
 
 const sizeShortcuts = {
   tiny: 14,
@@ -47,6 +48,7 @@ const StyledHeader = styled.h2`
 type Props = {
   size?: number | 'tiny' | 'small' | 'normal' | 'big',
   sub?: boolean,
+  style?: CSS<string | number>,
   children: React.Node
 }
 

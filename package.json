@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "cra-alias": "^4.13.14",
+    "csstype": "^2.6.6",
     "flow-bin": "^0.103.0",
     "gh-pages": "^2.0.1"
   },

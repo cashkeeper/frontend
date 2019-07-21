@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react'
 import styled from 'styled-components'
+import { type Properties as CSS } from 'csstype'
 
 const StyledInputGroup = styled.div`
   margin-bottom: 16px;
@@ -15,6 +16,7 @@ const InputGroupInner = styled.div`
 `
 
 type Props = {
+  style?: CSS<string | number>,
   children: React.Node
 }
 

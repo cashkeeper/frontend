@@ -2,6 +2,7 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { type Properties as CSS } from 'csstype'
 
 type Color = 'neutral' | 'success' | 'warning' | 'failure'
 type State = 'initial' | 'hover' | 'active'
@@ -104,6 +105,7 @@ type Props = {
   disabled?: boolean,
   fluid?: boolean,
   onClick?: (event: Event) => void,
+  style?: CSS<string | number>,
   children: React.Node
 }
 

@@ -2,6 +2,7 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import { type Properties as CSS } from 'csstype'
 
 const select = props => props.theme.elements.segment
 
@@ -63,6 +64,7 @@ type Props = {
   padding?: 'small' | 'normal' | 'big',
   paddingX?: number | number[],
   paddingY?: number | number[],
+  style?: CSS<string | number>,
   children: React.Node
 }
 

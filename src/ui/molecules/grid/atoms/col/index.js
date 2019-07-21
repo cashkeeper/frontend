@@ -3,6 +3,7 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useStore } from 'effector-react'
+import { type Properties as CSS } from 'csstype'
 import { $breakpoint } from '../../../../lib/models'
 import { columnsNumber } from '../../../../constants'
 
@@ -54,6 +55,7 @@ type Props = {
   offsetMD?: number,
   offsetLG?: number,
   offsetXL?: number,
+  style?: CSS<string | number>,
   children: React.Node
 }
 

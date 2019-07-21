@@ -2,6 +2,7 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import { useStore } from 'effector-react'
+import { type Properties as CSS } from 'csstype'
 import { $breakpoint, type Breakpoint } from '../../lib/models/breakpoint'
 import {
   breakpointList,
@@ -34,6 +35,7 @@ type Props = {
   from?: Breakpoint,
   to?: Breakpoint,
   on?: Breakpoint | Breakpoint[],
+  style?: CSS<string | number>,
   children: React.Node
 }
 

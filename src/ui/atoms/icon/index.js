@@ -2,6 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { type Properties as CSS } from 'csstype'
 
 const paths = {
   menu:
@@ -20,7 +21,8 @@ type IconName = 'menu'
 
 type Props = {
   name: IconName,
-  size?: number
+  size?: number,
+  style?: CSS<string | number>
 }
 
 export const Icon = ({ name, size = 24, ...rest }: Props) => {

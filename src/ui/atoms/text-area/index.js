@@ -2,6 +2,7 @@
 import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import { type Properties as CSS } from 'csstype'
 
 const sizeToValues = {
   small: {
@@ -97,9 +98,10 @@ type Props = {
   resizeX?: boolean,
   resizeY?: boolean,
   placeholder?: string,
-  value?: string | boolean,
-  defaultValue?: string | boolean,
-  onChange?: (v: string | boolean) => void
+  value?: string,
+  defaultValue?: string,
+  onChange?: (v: string, e: Event) => void,
+  style?: CSS<string | number>
 }
 
 export const TextArea = ({
@@ -120,9 +122,9 @@ export const TextArea = ({
   const resizeValue = getResizeValue(resizeX, resizeY)
 
   const wrappedOnChange = useCallback(
-    e => {
-      const value = e.target.value
-      if (onChange) onChange(value)
+    event => {
+      const value = event.target.value
+      if (onChange) onChange(value, event)
     },
     [onChange]
   )
@@ -149,5 +151,9 @@ TextArea.propTypes = {
   fluid: PropTypes.bool,
   rows: PropTypes.number,
   resizeX: PropTypes.bool,
-  resizeY: PropTypes.bool
+  resizeY: PropTypes.bool,
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
+  defaultValue: PropTypes.string,
+  onChange: PropTypes.func
 }

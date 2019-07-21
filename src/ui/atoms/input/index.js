@@ -1,7 +1,8 @@
 // @flow
-import React, { useCallback } from 'react'
+import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import { type Properties as CSS } from 'csstype'
 
 const sizeToValues = {
   small: {
@@ -86,9 +87,10 @@ type Props = {
   disabled?: boolean,
   fluid?: boolean,
   placeholder?: string,
-  value?: string | boolean,
-  defaultValue?: string | boolean,
-  onChange?: (v: string | boolean) => void
+  value?: string,
+  defaultValue?: string,
+  onChange?: (v: String, e: Event) => void,
+  style?: CSS<string | number>
 }
 
 export const Input = ({
@@ -105,10 +107,10 @@ export const Input = ({
   const sizeValues = getSizeValues(size)
   const width = getWidth(fluid)
 
-  const wrappedOnChange = useCallback(
-    e => {
-      const value = e.target.value
-      if (onChange) onChange(value)
+  const wrappedOnChange = React.useCallback(
+    event => {
+      const value = event.target.value
+      if (onChange) onChange(value, event)
     },
     [onChange]
   )
@@ -132,5 +134,9 @@ Input.propTypes = {
   type: PropTypes.oneOf(['text', 'password', 'number', 'hidden']),
   size: PropTypes.oneOf(['small', 'normal', 'big']),
   disabled: PropTypes.bool,
-  fluid: PropTypes.bool
+  fluid: PropTypes.bool,
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
+  defaultValue: PropTypes.string,
+  onChange: PropTypes.func
 }

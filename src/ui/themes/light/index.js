@@ -6,7 +6,7 @@ import { input } from './elements/input'
 
 export const theme = {
   general: {
-    fontFamily: 'Fira Sans',
+    fontFamily: '"Fira Sans"',
     colors: {
       text: '#222',
       background: '#f1f3f5',
