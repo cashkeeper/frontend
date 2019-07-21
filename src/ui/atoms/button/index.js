@@ -22,11 +22,11 @@ const sizeToValues = {
   },
   normal: {
     font: '14px',
-    padding: '10px 20px 8px'
+    padding: '10px 17px 8px'
   },
   big: {
     font: '16px',
-    padding: '11px 26px 9px'
+    padding: '11px 20px 9px'
   }
 }
 
