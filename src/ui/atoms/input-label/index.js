@@ -15,11 +15,13 @@ const getSizeValue = size => {
 
 const StyledInputLabel = styled.label`
   display: block;
-  font-size: ${props => props.sizeValue}px;
-  font-weight: 500;
+  width: 100%;
+  max-width: 160px;
+  margin-bottom: 4px;
   opacity: 0.75;
 
-  margin-bottom: 4px;
+  font-size: ${props => props.sizeValue}px;
+  font-weight: 500;
 `
 
 type Props = {

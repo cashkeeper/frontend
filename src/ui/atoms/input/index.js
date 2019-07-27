@@ -48,8 +48,8 @@ const passwordInputStyles = css`
 const StyledInput = styled.input`
   ${props => props.type === 'password' && passwordInputStyles}
 
-  width: ${props => props.width};
-  max-width: 100%;
+  width: 100%;
+  max-width: ${props => props.width};
   margin-bottom: 8px;
   background-color: ${props => select(props).colors.background};
   color: inherit;
