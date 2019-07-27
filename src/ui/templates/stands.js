@@ -19,12 +19,14 @@ const paddingsX = css`
 
 const ContentBlock = styled.div`
   flex-grow: 1;
+  overflow-y: auto;
+`
+
+const ContentWrapper = styled.div`
   padding-top: 48px;
   padding-bottom: 48px;
 
   ${props => !props.isMobile && paddingsX}
-
-  overflow-y: auto;
 `
 
 type Props = {
@@ -39,7 +41,9 @@ export const StandsTemplate = ({ sidebar, isMobile, children }: Props) => {
   return (
     <StandsBlock direction={direction}>
       <SidebarBlock>{sidebar}</SidebarBlock>
-      <ContentBlock isMobile={isMobile}>{children}</ContentBlock>
+      <ContentBlock>
+        <ContentWrapper isMobile={isMobile}>{children}</ContentWrapper>
+      </ContentBlock>
     </StandsBlock>
   )
 }
